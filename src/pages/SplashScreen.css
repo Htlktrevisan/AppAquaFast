@@ -1,0 +1,25 @@
+.splash-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* 100% da altura da tela */
+  width: 100vw;  /* 100% da largura da tela */
+  background-color: #ffffff; /* Fundo branco */
+}
+
+.splash-logo {
+  /* Define a animação: nome, duração, tipo, e para não voltar ao início */
+  animation: dropAndFadeIn 1.5s ease-out forwards;
+}
+
+/* A definição da animação */
+@keyframes dropAndFadeIn {
+  from {
+    opacity: 0; /* Começa transparente */
+    transform: translateY(-100px); /* Começa 100 pixels acima */
+  }
+  to {
+    opacity: 1; /* Termina opaco */
+    transform: translateY(0); /* Termina na posição normal */
+  }
+}
