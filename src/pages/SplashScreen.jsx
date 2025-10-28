@@ -1,27 +1,55 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import logo from '../assets/logo-aquafast.png'; // Importa sua logo
-import './SplashScreen.css'; // Vamos criar este CSS para a animação
+import './SplashScreen.css';
+
+// Importa todas as 7 PEÇAS da logo (com .webp)
+import frame1 from '../assets/gota-caindo-01.webp';
+import frame2 from '../assets/gota-caindo-02.webp';
+import frame3 from '../assets/gota-caindo-03.webp';
+import frame4 from '../assets/gota-caindo-04.webp';
+import frame5 from '../assets/gota-caindo-05.webp';
+import frame6 from '../assets/gota-caindo-06.webp';
+import frame7 from '../assets/gota-caindo-07.webp'; // A peça final
+
+// ----- Configurações (não mudam) -----
+const DELAY_ENTRE_PECAS = 800;
+const TEMPO_LOGO_COMPLETA = 1500;
+const TOTAL_PECAS = 7;
+const TEMPO_TOTAL_ANIMACAO = DELAY_ENTRE_PECAS * TOTAL_PECAS;
+const TEMPO_TOTAL_SPLASH = TEMPO_TOTAL_ANIMACAO + TEMPO_LOGO_COMPLETA;
+// ------------------------------------
 
 function SplashScreen() {
-  // O 'navigate' é uma função que nos deixa mudar de página
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Isso aqui roda logo que a tela aparece
-    const timer = setTimeout(() => {
-      // Depois de 3 segundos (3000ms), ele navega para a tela de login
-      navigate('/login');
-    }, 3000); // 3 segundos
+    const navigationTimer = setTimeout(() => {
+    navigate('/register');
+    }, TEMPO_TOTAL_SPLASH); 
 
-    // Isso é uma boa prática: limpa o timer se o usuário sair da tela
-    return () => clearTimeout(timer);
+    return () => clearTimeout(navigationTimer);
   }, [navigate]);
 
   return (
     <div className="splash-container">
-      {/* Usamos a logo importada aqui */}
-      <img src={logo} className="splash-logo" alt="Logo AquaFast" />
+      <div className="splash-puzzle-box">
+        {/* A MUDANÇA ESTÁ AQUI:
+          Esta imagem é invisível (visibility: hidden no CSS)
+          mas ela OCUPA ESPAÇO e define o tamanho da caixa.
+          Usamos a sua última imagem (a logo completa) para isso.
+        */}
+        <img src={frame7} className="splash-sizer" alt="" />
+
+        {/* Agora, as peças da animação vão se empilhar
+            em cima do espaço criado pelo "sizer" */}
+        <img src={frame1} className="splash-piece" alt="Peça 1" />
+        <img src={frame2} className="splash-piece" alt="Peça 2" />
+        <img src={frame3} className="splash-piece" alt="Peça 3" />
+        <img src={frame4} className="splash-piece" alt="Peça 4" />
+        <img src={frame5} className="splash-piece" alt="Peça 5" />
+        <img src={frame6} className="splash-piece" alt="Peça 6" />
+        <img src={frame7} className="splash-piece" alt="Peça 7" />
+      </div>
     </div>
   );
 }
