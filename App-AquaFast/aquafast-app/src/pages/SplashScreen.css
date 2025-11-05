@@ -1,0 +1,70 @@
+/* 1. A animação (não mudou) */
+@keyframes dropAndFadeIn {
+  from { 
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 2. O container da tela (não mudou) */
+.splash-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #ffffff; /* Mude para #000000 se o fundo for preto */
+}
+
+/* 3. A "caixa" (A MUDANÇA É AQUI) */
+.splash-puzzle-box {
+  position: relative; 
+  
+  /* ESTA É A MÁGICA:
+    Dizemos para a CAIXA ter 90% da largura da tela do celular (vw = viewport width).
+    Isso vai fazê-la grande, mas sem vazar!
+  */
+  width: 90vw; 
+  
+  /* E também definimos um tamanho máximo, só por segurança,
+    caso a tela seja muito grande.
+  */
+  max-width: 350px; /* Você pode aumentar este número se quiser ainda maior */
+}
+
+/* 4. O "Sizer" (não mudou) */
+.splash-sizer {
+  visibility: hidden; 
+  width: 100%;
+  height: auto;
+}
+
+/* 5. CADA PEÇA (A MUDANÇA É AQUI) */
+.splash-piece {
+  /* Empilhamento */
+  position: absolute; 
+  top: 0;
+  left: 0;
+  
+  /* AS PEÇAS DEVEM TER 100% DO TAMANHO DA CAIXA!
+    Corrigido de 400% para 100%.
+  */
+  width: 100%; 
+  height: 100%; 
+
+  /* Animação */
+  opacity: 0; 
+  animation: dropAndFadeIn 0.5s ease-out forwards;
+}
+
+/* 6. Os 'delays' (atrasos) (não mudou) */
+.splash-piece:nth-child(2) { animation-delay: 0.8s; } /* Peça 1 */
+.splash-piece:nth-child(3) { animation-delay: 1.6s; } /* Peça 2 */
+.splash-piece:nth-child(4) { animation-delay: 2.4s; } /* Peça 3 */
+.splash-piece:nth-child(5) { animation-delay: 3.2s; } /* Peça 4 */
+.splash-piece:nth-child(6) { animation-delay: 4.0s; } /* Peça 5 */
+.splash-piece:nth-child(7) { animation-delay: 4.8s; } /* Peça 6 */
+.splash-piece:nth-child(8) { animation-delay: 5.6s; } /* Peça 7 (a última) */

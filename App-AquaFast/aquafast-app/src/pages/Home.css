@@ -1,0 +1,173 @@
+/* Container geral da Home */
+.home-container {
+  padding: 0 15px;
+  background-color: #ffffff; /* <-- Fundo principal BRANCO */
+  min-height: calc(100vh - 70px); 
+}
+
+/* 1. Cabeçalho */
+.home-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 -15px;
+  padding: 15px 15px;
+  background-color: #EFEBE2; /* <-- Fundo BEGE */
+}
+.home-logo-header {
+  height: 40px; 
+}
+.home-header-icons {
+  font-size: 28px;
+  color: #0F7CBF; /* <-- Azul da empresa */
+  display: flex;
+  gap: 15px;
+}
+
+/* 2. Seção "Nossa Missão" (Imagem) */
+.home-section.mission {
+  padding: 0;
+  box-shadow: none;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-top: 20px; /* Espaço do header */
+  margin-bottom: 20px;
+}
+.mission-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 20px;
+}
+
+/* 3. Seção "Planos" (REVISADO E CORRIGIDO) */
+.home-section.plans {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; 
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.plan-card {
+  border-radius: 20px;
+  text-align: center;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+.plan-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Estilo Padrão (Plano Comum & Premium) */
+.plan-card-top {
+  background-color: #ffffff; /* Fundo branco no topo */
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding: 15px 10px 10px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #f0f0f0; 
+  border-bottom: none; 
+}
+.plan-card-top img {
+  height: 40px; 
+  margin-bottom: 5px;
+}
+.plan-title {
+  margin: 0;
+  font-weight: 600;
+  font-size: 11px;
+  color: #1a1a1a; /* Texto do título preto */
+}
+.plan-card-bottom {
+  background-color: #0F7CBF; /* Base azul */
+  color: #ffffff; /* Texto branco */
+  padding: 10px;
+  font-weight: 500;
+  font-size: 12px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border: none; 
+}
+.plan-card-bottom p {
+  margin: 0;
+}
+
+/* Estilos específicos para o Plano Extra (IDÊNTICO À IMAGEM) */
+#extra {
+  background-color: #0F7CBF; /* O card inteiro é azul */
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(15, 124, 191, 0.3);
+}
+#extra .plan-card-top {
+  background-color: #0F7CBF; /* Topo também azul */
+  border: none; /* Sem borda no topo */
+}
+#extra .plan-title {
+  color: #ffffff; /* Texto do título branco */
+}
+#extra .plan-card-bottom {
+  background-color: #0F7CBF; /* Base azul */
+  border: none; /* Sem borda na base */
+}
+
+
+/* 4. & 5. Cards de Produto e Comentário */
+.product-card, .comment-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: #0F7CBF; 
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.card-text-content {
+  flex: 1;
+}
+.card-text-content h2 {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+}
+.card-text-content p {
+  margin: 0 0 15px 0;
+  font-size: 13px;
+  opacity: 0.9;
+  line-height: 1.4;
+}
+.comment-text-body {
+  font-style: italic; /* Para o texto do comentário */
+}
+
+/* Cor do texto do botão */
+.home-button-white {
+  background-color: #ffffff;
+  color: #0F7CBF; 
+  border: none;
+  border-radius: 15px;
+  padding: 10px 20px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Imagens dos cards */
+.product-image {
+  width: 100px;
+  height: auto;
+}
+.comment-image {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ffffff;
+}
