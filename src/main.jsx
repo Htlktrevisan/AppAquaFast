@@ -2,31 +2,53 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-// 1. Importe as páginas que você criou
+import './index.css'; // CSS Global
+
+// Importa as páginas "sem" layout
 import SplashScreen from './pages/SplashScreen';
 import Login from './pages/Login';
 import Register from './pages/Register';
 
-// 2. Importe o CSS principal
-import './index.css';
+// Importa o LAYOUT PRINCIPAL
+import MainLayout from './components/MainLayout';
+// Importa as páginas "com" layout
+import Home from './pages/Home';
+// (Aqui vamos adicionar Mapa, Chat, etc. no futuro)
 
-// 3. Defina as rotas (os caminhos) do seu app
 const router = createBrowserRouter([
+  // --- Rotas sem a barra de navegação ---
   {
-    path: '/', // A rota inicial (raiz)
-    element: <SplashScreen />, // Vai mostrar a Splash Screen primeiro
+    path: '/',
+    element: <SplashScreen />,
   },
   {
-    path: '/login', // A rota da página de login
+    path: '/login',
     element: <Login />,
   },
   {
-    path: '/register', // A rota da página de cadastro
+    path: '/register',
     element: <Register />,
+  },
+
+  // --- Rotas COM a barra de navegação ---
+  {
+    path: '/',
+    element: <MainLayout />, // O MainLayout é o "pai"
+    children: [
+      // As páginas "filhas" que aparecem dentro do MainLayout
+      {
+        path: '/home', // Rota da página inicial
+        element: <Home />,
+      },
+      // {
+      //   path: '/map',
+      //   element: <ElementoDoMapa />,
+      // },
+      // etc.
+    ],
   },
 ]);
 
-// 4. Manda o React renderizar o app com as rotas
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <RouterProvider router={router} />

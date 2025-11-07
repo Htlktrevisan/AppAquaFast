@@ -1,49 +1,57 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import './Register.css'; // 1. Importa o novo CSS
-
-// 2. Importa a logo final (a 7ª peça da sua animação)
+import { Link, useNavigate } from 'react-router-dom';
+import './Register.css';
 import logo from '../assets/gota-caindo-07.webp';
-
-// 3. Importa os ícones do 'react-icons'
 import { FaUser, FaEnvelope, FaLock } from 'react-icons/fa';
 
 function Register() {
+  const navigate = useNavigate(); 
+
+  // Função chamada ao enviar o formulário
+  const handleRegister = (e) => {
+    e.preventDefault(); // Impede o recarregamento da página
+    
+    // Apenas simula o cadastro e navega
+    console.log("Usuário cadastrado! Redirecionando...");
+
+    // Navega para /home e envia o 'state' para ativar o modal
+    navigate('/home', { state: { from: 'register' } });
+  };
+
   return (
     <div className="register-container">
       
-      {/* ===== PARTE DE CIMA (LOGO) ===== */}
       <div className="register-logo-container">
         <img src={logo} alt="Logo AquaFast" className="register-logo" />
       </div>
 
-      {/* ===== PARTE DE BAIXO (FORMULÁRIO) ===== */}
       <div className="register-form-container">
         <h2>Bem vindo!!</h2>
         
-        <form>
+        {/* Conecta o formulário à função handleRegister */}
+        <form onSubmit={handleRegister}>
           {/* --- Campo Nome Completo --- */}
           <div className="register-input-group">
             <FaUser className="register-icon" />
-            <input type="text" placeholder="Nome Completo" />
+            <input type="text" placeholder="Nome Completo" required />
           </div>
           
           {/* --- Campo Email --- */}
           <div className="register-input-group">
             <FaEnvelope className="register-icon" />
-            <input type="email" placeholder="Email" />
+            <input type="email" placeholder="Email" required />
           </div>
           
           {/* --- Campo Senha --- */}
           <div className="register-input-group">
             <FaLock className="register-icon" />
-            <input type="password" placeholder="Senha" />
+            <input type="password" placeholder="Senha" required />
           </div>
           
           {/* --- Campo Senha de Confirmação --- */}
           <div className="register-input-group">
             <FaLock className="register-icon" />
-            <input type="password" placeholder="Senha de confirmação" />
+            <input type="password" placeholder="Senha de confirmação" required />
           </div>
           
           {/* --- Botão Cadastre --- */}
