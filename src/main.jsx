@@ -13,7 +13,7 @@ import Register from './pages/Register';
 import MainLayout from './components/MainLayout';
 // Importa as páginas "com" layout
 import Home from './pages/Home';
-// (Aqui vamos adicionar Mapa, Chat, etc. no futuro)
+import Profile from './pages/Profile'; // <-- 1. IMPORTA O PROFILE AQUI
 
 const router = createBrowserRouter([
   // --- Rotas sem a barra de navegação ---
@@ -39,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: '/home', // Rota da página inicial
         element: <Home />,
+      },
+      {
+        path: '/profile', // <-- 2. ADICIONA A ROTA DO PROFILE
+        element: <Profile />,
       },
       // {
       //   path: '/map',

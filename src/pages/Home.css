@@ -61,7 +61,7 @@
   transform: translateY(-5px);
 }
 
-/* Estilo Padrão (AGORA PARA TODOS OS 3 PLANOS - Topo Branco, Base Azul) */
+/* Estilo Padrão (para todos os 3 planos - Topo Branco, Base Azul) */
 .plan-card-top {
   background-color: #ffffff; /* Fundo branco no topo */
   border-top-left-radius: 20px;
@@ -93,15 +93,14 @@
 .plan-card-bottom p {
   margin: 0;
 }
-/* O bloco #extra FOI REMOVIDO */
 
 
 /* 4. Card de Produto (CORRIGIDO) */
 .product-card {
   display: flex;
   align-items: flex-start; /* Alinha o texto no topo */
-  gap: 20px; /* <-- Aumenta o espaço "pro lado" */
-  padding: 20px; /* Padding do card azul */
+  gap: 20px; 
+  padding: 20px; 
   border-radius: 20px;
   background-color: #0F7CBF; 
   color: #ffffff;
@@ -111,16 +110,16 @@
 /* O "card branco" que segura a imagem da caixa */
 .product-image-container {
   background-color: #ffffff;
-  border-radius: 15px; /* Bordas do card branco */
+  border-radius: 15px; 
   padding: 15px;
-  width: 120px; /* Tamanho do card branco */
-  flex-shrink: 0; /* Impede que o card branco encolha */
+  width: 120px; 
+  flex-shrink: 0; 
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 /* A imagem da caixa em si */
 .product-image {
-  width: 100%; /* Imagem ocupa 100% do card branco */
+  width: 100%; 
   height: auto;
   display: block;
 }
@@ -128,7 +127,7 @@
 /* 5. Card de Comentário (Estilo separado) */
 .comment-card {
   display: flex;
-  align-items: center; /* No comentário, o alinhamento é no centro */
+  align-items: center; 
   gap: 15px;
   padding: 25px;
   border-radius: 20px;
@@ -184,3 +183,12 @@
   height: auto;
   border-radius: 50%; 
 }
+
+/* ================================================= */
+/* 6. ESTILO DOS LINKS DO CABEÇALHO (ADICIONADO) */
+/* ================================================= */
+.header-icon-link {
+  color: black; /* Cor padrão (preto) para ícones inativos */
+  text-decoration: none; /* Remove sublinhado */
+}
+

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+// 1. IMPORTAR O 'Link' AQUI
+import { useLocation, Link } from 'react-router-dom';
 import './Home.css'; 
 import WelcomeModal from '../components/WelcomeModal'; 
 
@@ -31,9 +32,15 @@ function Home() {
       {/* 1. Cabeçalho */}
       <header className="home-header">
         <img src={logo} alt="AquaFast" className="home-logo-header" />
+        
+        {/* 2. AQUI ESTÁ A MUDANÇA (ÍCONES AGORA SÃO LINKS) */}
         <div className="home-header-icons">
-          <FaUserCircle />
-          <FaShoppingCart />
+          <Link to="/profile" className="header-icon-link active-blue">
+            <FaUserCircle />
+          </Link>
+          <Link to="/cart" className="header-icon-link">
+            <FaShoppingCart />
+          </Link>
         </div>
       </header>
 
@@ -77,8 +84,6 @@ function Home() {
 
       {/* 4. Seção "Sobre nossos Produtos" */}
       <section className="home-section product-card">
-        
-        {/* AQUI ESTÁ A MUDANÇA: O container branco da imagem */}
         <div className="product-image-container">
           <img src={produtoCaixa} alt="Caixa do Produto" className="product-image" />
         </div>
@@ -91,7 +96,7 @@ function Home() {
         </div>
       </section>
 
-      {/* 5. Seção "Comentários" (Estrutura está correta) */}
+      {/* 5. Seção "Comentários" */}
       <section className="home-section comment-card">
         <div className="comment-image">
           <img src={comentarioRosto} alt="Rosto de cliente" className="neymar" />
