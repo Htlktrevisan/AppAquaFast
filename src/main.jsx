@@ -5,15 +5,18 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css'; // CSS Global
 
 // Importa as páginas "sem" layout
-import SplashScreen from './pages/SplashScreen';
-import Login from './pages/Login';
-import Register from './pages/Register';
+import SplashScreen from './pages/SplashScreen.jsx';
+import Login from './pages/Login.jsx';
+import Register from './pages/Register.jsx';
 
 // Importa o LAYOUT PRINCIPAL
-import MainLayout from './components/MainLayout';
+import MainLayout from './components/MainLayout.jsx';
+
 // Importa as páginas "com" layout
-import Home from './pages/Home';
-import Profile from './pages/Profile'; // <-- 1. IMPORTA O PROFILE AQUI
+import Home from './pages/Home.jsx';
+import Profile from './pages/Profile.jsx';
+import Map from './pages/Map.jsx'; 
+import Comments from './pages/Comments.jsx';
 
 const router = createBrowserRouter([
   // --- Rotas sem a barra de navegação ---
@@ -35,20 +38,22 @@ const router = createBrowserRouter([
     path: '/',
     element: <MainLayout />, // O MainLayout é o "pai"
     children: [
-      // As páginas "filhas" que aparecem dentro do MainLayout
       {
-        path: '/home', // Rota da página inicial
+        path: '/home', 
         element: <Home />,
       },
       {
-        path: '/profile', // <-- 2. ADICIONA A ROTA DO PROFILE
+        path: '/profile', 
         element: <Profile />,
       },
-      // {
-      //   path: '/map',
-      //   element: <ElementoDoMapa />,
-      // },
-      // etc.
+      {
+        path: '/map', 
+        element: <Map />,
+      },
+      {
+        path: '/comments', 
+        element: <Comments />,
+      },
     ],
   },
 ]);

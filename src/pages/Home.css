@@ -1,7 +1,7 @@
 /* Container geral da Home */
 .home-container {
   padding: 0 15px;
-  background-color: #ffffff; /* <-- Fundo principal BRANCO */
+  background-color: #ffffff;
   min-height: calc(100vh - 70px); 
 }
 
@@ -12,7 +12,7 @@
   align-items: center;
   margin: 0 -15px;
   padding: 15px 15px;
-  background-color: #EFEBE2; /* <-- Fundo BEGE */
+  background-color: #EFEBE2;
 }
 .home-logo-header {
   height: 40px; 
@@ -30,7 +30,7 @@
   box-shadow: none;
   border-radius: 20px;
   overflow: hidden;
-  margin-top: 20px; /* Espaço do header */
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 .mission-image {
@@ -61,9 +61,8 @@
   transform: translateY(-5px);
 }
 
-/* Estilo Padrão (para todos os 3 planos - Topo Branco, Base Azul) */
 .plan-card-top {
-  background-color: #ffffff; /* Fundo branco no topo */
+  background-color: #ffffff;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   padding: 15px 10px 10px;
@@ -81,8 +80,8 @@
   margin-bottom: 0; 
 }
 .plan-card-bottom {
-  background-color: #0F7CBF; /* Base azul */
-  color: #ffffff; /* Texto branco */
+  background-color: #0F7CBF;
+  color: #ffffff;
   padding: 10px;
   font-weight: 500;
   font-size: 12px;
@@ -95,10 +94,10 @@
 }
 
 
-/* 4. Card de Produto (CORRIGIDO) */
+/* 4. Card de Produto */
 .product-card {
   display: flex;
-  align-items: flex-start; /* Alinha o texto no topo */
+  align-items: flex-start;
   gap: 20px; 
   padding: 20px; 
   border-radius: 20px;
@@ -107,7 +106,6 @@
   margin-bottom: 20px;
 }
 
-/* O "card branco" que segura a imagem da caixa */
 .product-image-container {
   background-color: #ffffff;
   border-radius: 15px; 
@@ -117,14 +115,13 @@
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-/* A imagem da caixa em si */
 .product-image {
   width: 100%; 
   height: auto;
   display: block;
 }
 
-/* 5. Card de Comentário (Estilo separado) */
+/* 5. Card de Comentário */
 .comment-card {
   display: flex;
   align-items: center; 
@@ -136,7 +133,6 @@
   margin-bottom: 20px;
 }
 
-/* Conteúdo de texto (comum aos dois cards) */
 .card-text-content {
   flex: 1;
 }
@@ -154,8 +150,10 @@
   font-style: italic; 
 }
 
-/* Botão branco (comum aos dois cards) */
+/* Botão branco (agora como link) */
 .home-button-white {
+  display: inline-block; /* Faz o link se comportar como botão */
+  text-decoration: none; /* Remove sublinhado */
   background-color: #ffffff;
   color: #0F7CBF; 
   border: none;
@@ -164,7 +162,23 @@
   font-weight: bold;
   font-size: 14px;
   cursor: pointer;
+  text-align: center;
 }
+
+/* NOVO: Estilo para o link do H2 */
+.card-title-link {
+  text-decoration: none; /* Remove sublinhado */
+  color: inherit; /* Herda a cor branca do pai */
+}
+.card-title-link h2 {
+  display: inline-block; /* Garante que o H2 não quebre a linha */
+  transition: opacity 0.2s;
+}
+/* Efeito de hover (opcional) */
+.card-title-link:hover h2 {
+  opacity: 0.8; 
+}
+
 
 /* Estilos do card de Comentário */
 .comment-image {
@@ -184,11 +198,11 @@
   border-radius: 50%; 
 }
 
-/* ================================================= */
-/* 6. ESTILO DOS LINKS DO CABEÇALHO (ADICIONADO) */
-/* ================================================= */
+/* Estilo dos links do cabeçalho */
 .header-icon-link {
-  color: black; /* Cor padrão (preto) para ícones inativos */
-  text-decoration: none; /* Remove sublinhado */
+  color: black;
+  text-decoration: none;
 }
-
+.header-icon-link.active-blue {
+  color: #0F7CBF;
+}

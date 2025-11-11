@@ -1,0 +1,143 @@
+/* Fundo geral da página de comentários (branco) */
+.comments-page-container {
+  background-color: #ffffff;
+  min-height: calc(100vh - 70px);
+  padding-bottom: 20px;
+}
+
+/* 1. Cabeçalho */
+.comments-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 15px;
+  background-color: #EFEBE2;
+}
+.comments-logo-header {
+  height: 40px; 
+}
+.comments-header-icons {
+  font-size: 30px;
+  display: flex;
+  gap: 20px;
+}
+.header-icon-link {
+  color: black; 
+  text-decoration: none;
+}
+
+/* 2. Conteúdo */
+.comments-content {
+  padding: 0 15px; /* O padding lateral da página */
+  /* Precisamos disso para o margin-left negativo funcionar */
+  overflow-x: hidden; 
+}
+
+/* 3. Faixa de Título Azul (A COMBINAÇÃO FINAL) */
+.comments-title-bar {
+  background-color: #0F7CBF;
+  color: #ffffff;
+  padding: 10px 15px;
+  font-size: 16px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  
+  /* MUDANÇA 1: "linha maior" (ocupa 100% da largura do PAI) */
+  width: 100%; 
+  
+  /* MUDANÇA 2: "daquele jeito la" (estilo Perfil) */
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+
+  /* MUDANÇA 3: Puxa para o canto da TELA */
+  /* (O padding do .comments-content é 15px, então -15px puxa de volta) */
+  margin-left: -15px; 
+  
+  /* MUDANÇA 4: Garante que o padding não quebre o layout */
+  box-sizing: border-box; 
+
+  /* Adicionamos o padding do outro lado para compensar o margin-left
+     e o texto ficar centralizado na TELA, não na faixa */
+  padding-right: 30px; /* (15px do padding original + 15px da margem) */
+}
+
+.comments-title-bar h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  
+  /* MUDANÇA 5: "texto no meio" (centralizado na faixa) */
+  text-align: center; 
+}
+
+
+/* 4. Lista de Comentários */
+.comment-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.comment-card-item {
+  display: flex;
+  gap: 15px;
+  padding: 15px;
+  background-color: #ffffff;
+  border: 1px solid #f0f0f0;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.comment-author-pic {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.comment-author-info {
+  flex: 1;
+}
+
+.comment-author-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #000000;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.comment-stars {
+  color: #000000; /* Estrelas pretas */
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.comment-text {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* 5. Botão "Ver mais" (Estilo branco com borda azul) */
+.comments-load-more {
+  width: 100%;
+  height: 55px;
+  background-color: #ffffff;
+  color: #0F7CBF;
+  border: 1px solid #0F7CBF;
+  border-radius: 25px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.2s;
+}
+.comments-load-more:hover {
+  background-color: #f0f8ff;
+}

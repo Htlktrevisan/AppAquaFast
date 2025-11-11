@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-// 1. IMPORTAR O 'Link' AQUI
 import { useLocation, Link } from 'react-router-dom';
 import './Home.css'; 
-import WelcomeModal from '../components/WelcomeModal'; 
+import WelcomeModal from '../components/WelcomeModal.jsx'; // <-- CORRIGIDO AQUI
 
 // Importa as imagens
 import logo from '../assets/Logo.png';
@@ -32,8 +31,6 @@ function Home() {
       {/* 1. Cabeçalho */}
       <header className="home-header">
         <img src={logo} alt="AquaFast" className="home-logo-header" />
-        
-        {/* 2. AQUI ESTÁ A MUDANÇA (ÍCONES AGORA SÃO LINKS) */}
         <div className="home-header-icons">
           <Link to="/profile" className="header-icon-link active-blue">
             <FaUserCircle />
@@ -96,18 +93,28 @@ function Home() {
         </div>
       </section>
 
-      {/* 5. Seção "Comentários" */}
+      {/* 5. Seção "Comentários" (COM AS MUDANÇAS) */}
       <section className="home-section comment-card">
         <div className="comment-image">
           <img src={comentarioRosto} alt="Rosto de cliente" className="neymar" />
         </div>
         <div className="card-text-content">
-          <h2>Comentários</h2>
+          
+          {/* AQUI ESTÁ A MUDANÇA 1: h2 agora é um link */}
+          <Link to="/comments" className="card-title-link">
+            <h2>Comentários</h2>
+          </Link>
+          
           <p className="comment-text-body">
             Excelente serviço e estrutura do aplicativo.<br/>
             É só apertar o play para ver mais.
           </p>
-          <button className="home-button-white">Ver mais</button>
+          
+          {/* AQUI ESTÁ A MUDANÇA 2: botão agora é um link */}
+          <Link to="/comments" className="home-button-white">
+            Ver mais
+          </Link>
+
         </div>
       </section>
     </div>
