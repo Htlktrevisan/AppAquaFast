@@ -17,6 +17,8 @@ import Home from './pages/Home.jsx';
 import Profile from './pages/Profile.jsx';
 import Map from './pages/Map.jsx'; 
 import Comments from './pages/Comments.jsx';
+import Energy from './pages/Energy.jsx';
+import RoomEnergy from './pages/RoomEnergy.jsx'; // A página "Adicionar Itens"
 
 const router = createBrowserRouter([
   // --- Rotas sem a barra de navegação ---
@@ -53,6 +55,14 @@ const router = createBrowserRouter([
       {
         path: '/comments', 
         element: <Comments />,
+      },
+      {
+        path: '/energia', // A tela de "Escolher Cômodo"
+        element: <Energy />,
+      },
+      {
+        path: '/energia/:roomName', // A tela "Adicionar Itens"
+        element: <RoomEnergy />,
       },
     ],
   },

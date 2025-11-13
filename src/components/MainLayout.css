@@ -13,23 +13,16 @@
   bottom: 0;
   left: 0;
   right: 0;
-  
-  /* Centraliza no nosso "celular" de 430px */
-  max-width: 430px;
-  margin: 0 auto;
-  
+  max-width: 430px; /* Limita a largura ao 'body' */
+  margin: 0 auto; /* Centraliza */
   height: 70px;
   background-color: #EFEBE2; /* Fundo da navbar BEGE */
   display: flex;
   justify-content: space-around;
-  /* Alinha os itens INATIVOS no centro. O ativo vai se mover. */
   align-items: center; 
-  
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  
-  /* IMPORTANTE: Permite que o item "suba" para fora da barra */
   overflow: visible; 
 }
 
@@ -40,13 +33,9 @@
   justify-content: center; 
   text-decoration: none;
   color: #000000; /* Ícones inativos PRETOS */
-  
-  /* Define um tamanho de "hitbox" para o círculo */
   width: 60px; 
   height: 60px;
-  border-radius: 50%; /* Prepara para ser um círculo */
-  
-  /* Transição suave para o ícone e a "subida" */
+  border-radius: 50%; 
   transition: all 0.3s ease-out;
 }
 
@@ -56,21 +45,13 @@
   z-index: 2; 
 }
 
-/* O ÍCONE "CLICADO" (ATIVO) */
+/* O ÍCONE "CLICADO" (ATIVO) - EFEITO BOLHA */
 .nav-item.active {
-  /* 1. Transforma o item em um círculo BEGE */
-  background-color: #EFEBE2; 
-  
-  /* 2. "Suba um pouco" - move o círculo para cima */
-  transform: translateY(-20px); 
-  
-  /* 3. Sombra que dá o efeito de "flutuar" */
+  background-color: #EFEBE2; /* "bolha" BEGE */
+  transform: translateY(-20px); /* "sobe" */
   box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* 4. Pinta SÓ o ícone de AZUL quando estiver ativo */
 .nav-item.active svg {
   color: #0F7CBF; /* Azul da empresa */
 }
-
-/* O CSS do ::before foi REMOVIDO, pois estava errado. */

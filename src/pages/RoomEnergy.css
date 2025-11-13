@@ -1,0 +1,208 @@
+/* Fundo geral da página (branco) */
+.room-energy-container {
+  background-color: #ffffff;
+  min-height: calc(100vh - 70px);
+  padding-bottom: 20px;
+}
+
+/* 1. Cabeçalho (Padrão) */
+.room-energy-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 15px;
+  background-color: #EFEBE2;
+}
+.room-energy-logo-header {
+  height: 40px; 
+}
+.room-energy-header-icons {
+  font-size: 30px;
+  display: flex;
+  gap: 20px;
+}
+.header-icon-link {
+  color: black; 
+  text-decoration: none;
+}
+
+/* 2. Conteúdo */
+.room-energy-content {
+  padding: 0 15px;
+}
+
+/* 3. Faixa de Título Azul */
+.room-energy-title-bar {
+  background-color: #0F7CBF;
+  color: #ffffff;
+  padding: 10px 15px;
+  margin: 20px -15px 25px -15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+}
+.back-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.title-text h2 {
+  margin: 0 0 4px 0;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: left;
+}
+.title-text p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 300;
+  text-align: left;
+}
+
+/* 4. Lista de Itens */
+.item-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; 
+  margin-bottom: 30px;
+}
+.item-wrapper {
+  border: 1px solid #000000;
+  border-radius: 10px;
+  transition: all 0.2s;
+  overflow: hidden; 
+}
+.item-button {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.item-button svg {
+  font-size: 24px;
+}
+.item-power {
+  margin-left: auto;
+  font-size: 14px;
+  color: #777;
+}
+.item-wrapper.selected {
+  border-color: #0F7CBF;
+  background-color: #0F7CBF;
+}
+.item-wrapper.selected .item-button {
+  background-color: #0F7CBF;
+  color: #ffffff;
+}
+.item-wrapper.selected .item-button .item-power {
+  color: #f0f8ff;
+}
+.quantity-control-inline {
+  display: flex;
+  background-color: #f0f2f5;
+  border-top: 1px solid #0F7CBF;
+}
+.quantity-control-inline input {
+  width: 100%;
+  height: 45px;
+  padding: 0 10px;
+  border: none;
+  border-left: 1px solid #d9d9d9;
+  border-right: 1px solid #d9d9d9;
+  font-size: 16px;
+  text-align: center;
+  background-color: #ffffff;
+}
+.quantity-control-inline button {
+  width: 50px;
+  height: 45px;
+  border: none;
+  background-color: #f0f2f5;
+  font-size: 14px;
+  cursor: pointer;
+  color: #333;
+}
+.item-button.other-options {
+  border: 1px dashed #555;
+  color: #555;
+  justify-content: center;
+  width: 100%;
+  border-radius: 10px;
+}
+.item-button.other-options:hover {
+  background-color: #f9f9f9;
+}
+
+/* 5. Título "Total" */
+.total-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+}
+
+/* 6. Seção de Potência e Quantidade (COM AS CORREÇÕES) */
+.power-quantity-section {
+  display: flex;
+  gap: 10px; /* Diminui o espaço entre os campos */
+  margin-bottom: 30px;
+}
+.input-field {
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* Divide o espaço igualmente */
+  min-width: 0; /* Permite que o flex "encolha" o item */
+}
+.input-field label {
+  font-size: 15px; /* Fonte um pouco menor */
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 8px;
+  white-space: nowrap; /* Impede que o texto "Total Itens" quebre a linha */
+  overflow: hidden; /* Esconde o texto se ele for muito grande */
+  text-overflow: ellipsis; /* Adiciona "..." se for muito grande */
+}
+.input-field input {
+  height: 50px;
+  padding: 0 10px;
+  border: 1px solid #d9d9d9;
+  border-radius: 10px;
+  font-size: 16px;
+  text-align: center;
+}
+.input-field input:disabled {
+  background-color: #f0f2f5;
+  color: #333;
+  font-weight: bold;
+}
+
+/* 7. Botão Salvar */
+.save-button {
+  width: 100%;
+  height: 55px;
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid #000000;
+  border-radius: 25px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 20px;
+}
+.save-button:hover {
+  background-color: #f5f5f5;
+}

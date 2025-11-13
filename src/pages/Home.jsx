@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import './Home.css'; 
-import WelcomeModal from '../components/WelcomeModal.jsx'; // <-- CORRIGIDO AQUI
+import WelcomeModal from '../components/WelcomeModal.jsx';
 
 // Importa as imagens
 import logo from '../assets/Logo.png';
@@ -32,9 +32,12 @@ function Home() {
       <header className="home-header">
         <img src={logo} alt="AquaFast" className="home-logo-header" />
         <div className="home-header-icons">
-          <Link to="/profile" className="header-icon-link active-blue">
+          
+          {/* AQUI ESTÁ A MUDANÇA: Removemos a classe 'active-blue' */}
+          <Link to="/profile" className="header-icon-link">
             <FaUserCircle />
           </Link>
+          
           <Link to="/cart" className="header-icon-link">
             <FaShoppingCart />
           </Link>
@@ -48,7 +51,6 @@ function Home() {
 
       {/* 3. Seção "Planos" */}
       <section className="home-section plans">
-        {/* PLANO COMUM */}
         <div className="plan-card" id="comum">
           <div className="plan-card-top">
             <img src={planoComumLogo} alt="Plano Comum Logo" />
@@ -57,8 +59,6 @@ function Home() {
             <p>Plano Comum</p>
           </div>
         </div>
-
-        {/* PLANO EXTRA */}
         <div className="plan-card" id="extra">
           <div className="plan-card-top">
             <img src={planoExtraLogo} alt="Plano Extra Logo" />
@@ -67,8 +67,6 @@ function Home() {
             <p>Plano Extra</p>
           </div>
         </div>
-
-        {/* PLANO PREMIUM */}
         <div className="plan-card" id="premium">
           <div className="plan-card-top">
             <img src={planoPremiumLogo} alt="Plano Premium Logo" />
@@ -84,7 +82,6 @@ function Home() {
         <div className="product-image-container">
           <img src={produtoCaixa} alt="Caixa do Produto" className="product-image" />
         </div>
-        
         <div className="card-text-content">
           <h2>Sobre os nossos Produtos</h2>
           <p>Chegou a próxima geração de soluções da AQUAFAST.</p>
@@ -99,22 +96,16 @@ function Home() {
           <img src={comentarioRosto} alt="Rosto de cliente" className="neymar" />
         </div>
         <div className="card-text-content">
-          
-          {/* AQUI ESTÁ A MUDANÇA 1: h2 agora é um link */}
           <Link to="/comments" className="card-title-link">
             <h2>Comentários</h2>
           </Link>
-          
           <p className="comment-text-body">
             Excelente serviço e estrutura do aplicativo.<br/>
             É só apertar o play para ver mais.
-          </p>
-          
-          {/* AQUI ESTÁ A MUDANÇA 2: botão agora é um link */}
+          </p> 
           <Link to="/comments" className="home-button-white">
             Ver mais
           </Link>
-
         </div>
       </section>
     </div>

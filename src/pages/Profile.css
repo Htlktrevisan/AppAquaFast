@@ -1,7 +1,6 @@
-/* Fundo geral da página de perfil (branco) */
 .profile-container {
   background-color: #ffffff;
-  padding-bottom: 20px; /* Espaço extra no final */
+  padding-bottom: 20px;
 }
 
 /* 1. Cabeçalho */
@@ -10,7 +9,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 15px 15px;
-  background-color: #EFEBE2; /* Fundo BEGE */
+  background-color: #EFEBE2;
 }
 .profile-logo-header {
   height: 40px; 
@@ -20,24 +19,23 @@
   display: flex;
   gap: 20px;
 }
+/* AQUI ESTÃO AS MESMAS REGRAS */
 .header-icon-link {
-  color: black; /* Cor padrão do ícone */
+  color: black; /* Padrão é preto */
   text-decoration: none;
 }
-/* Ícone ativo (nesta página, é o de Perfil) */
-.header-icon-link.active {
-  color: #0F7CBF; /* Cor do ícone ativo (azul) */
+.header-icon-link.active-blue {
+  color: #0F7CBF; /* Classe que deixa azul */
 }
 
-/* 2. Conteúdo do Perfil */
+
+/* 2. Conteúdo */
 .profile-content {
-  padding: 20px 15px 0 15px; /* Padding do conteúdo principal */
+  padding: 20px 15px 0 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
-/* 3. Seção da Foto */
 .profile-pic-wrapper {
   display: flex;
   flex-direction: column;
@@ -49,16 +47,16 @@
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  background-color: #d9d9d9; /* Cinza placeholder */
+  background-color: #d9d9d9;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 15px;
   color: #ffffff;
-  font-size: 120px; /* Tamanho do ícone placeholder */
+  font-size: 120px;
 }
 .profile-pic-button {
-  background-color: #0F7CBF; /* Azul da empresa */
+  background-color: #0F7CBF;
   color: #ffffff;
   border: none;
   border-radius: 20px;
@@ -71,7 +69,7 @@
   cursor: pointer;
 }
 
-/* 4. Formulário */
+/* 3. Formulário */
 .profile-form {
   width: 100%;
 }
@@ -79,48 +77,27 @@
   margin-bottom: 20px;
   width: 100%; 
 }
-
-/* AQUI ESTÁ A CORREÇÃO FINAL PARA A FAIXA AZUL */
 .profile-section h3 {
-  background-color: #0F7CBF; /* Faixa azul */
+  background-color: #0F7CBF;
   color: #ffffff;
   padding: 10px 15px;
-  
-  /* Arredonda apenas o canto direito */
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-  
-  /* Remove o arredondamento dos cantos esquerdos para ficar reto */
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  
   font-size: 16px;
   margin-bottom: 15px;
-  
-  /* Faz o texto ficar centralizado dentro da faixa */
   text-align: center; 
-  
-  /* Define uma largura para a faixa (ajuste este valor se precisar!) */
-  /* Sugestão: pode ser um valor fixo em px, ou um max-width */
-  width: 250px; /* <-- Ajuste este valor conforme o desejado */
-  /* Ou, se quiser mais flexibilidade, pode usar:
-  max-width: 70%; 
   width: fit-content; 
-  min-width: 200px;
-  */
-
-  /* Garante que comece na borda esquerda da tela, 
-     desconsiderando o padding do .profile-content */
-  margin-left: -15px; 
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  margin-left: -15px;
+  padding-left: 15px;
 }
-
-
 .profile-form input {
   width: 100%;
   height: 50px;
   padding: 0 15px;
   margin-bottom: 10px;
-  border: 1px solid #d9d9d9; /* Borda cinza */
+  border: 1px solid #d9d9d9;
   border-radius: 10px;
   font-size: 16px;
   box-sizing: border-box; 
@@ -129,24 +106,23 @@
   outline: 2px solid #0F7CBF; 
   border-color: #0F7CBF;
 }
-
 .profile-input-row {
   display: flex;
   gap: 10px;
 }
 .input-city {
-  flex: 2; /* Cidade ocupa mais espaço */
+  flex: 2;
 }
 .input-cep {
-  flex: 1; /* CEP ocupa menos */
+  flex: 1;
 }
 
-/* 5. Botão de Confirmação */
+/* 4. Botão de Confirmar */
 .profile-confirm-button {
   width: 100%;
   height: 55px;
   background-color: #ffffff;
-  color: #333333; /* Texto escuro */
+  color: #333333;
   border: 1px solid #d9d9d9;
   border-radius: 25px;
   font-size: 18px;

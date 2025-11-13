@@ -1,4 +1,3 @@
-// src/components/MainLayout.jsx (Mantenha este código)
 import React from 'react';
 import { Outlet, useLocation, Link } from 'react-router-dom';
 import './MainLayout.css'; 
@@ -23,6 +22,7 @@ function MainLayout() {
         <Outlet />
       </main>
 
+      {/* A tag 'footer' é semanticamente melhor para uma barra de navegação */}
       <footer className="bottom-nav">
         {/* 1. Início */}
         <Link 
@@ -42,8 +42,8 @@ function MainLayout() {
         
         {/* 3. Energia */}
         <Link 
-          to="/energy" 
-          className={isActive('/energy') ? 'nav-item active' : 'nav-item'}
+          to="/energia" // O 'to' estava '/energy' no seu, mudei para '/energia'
+          className={isActive('/energia') ? 'nav-item active' : 'nav-item'}
         >
           <FaBolt />
         </Link>
@@ -58,8 +58,8 @@ function MainLayout() {
         
         {/* 5. Tabela/Gráfico (Carteira) */}
         <Link 
-          to="/wallet" 
-          className={isActive('/wallet') ? 'nav-item active' : 'nav-item'}
+          to="/relatorio" // Mudei de '/wallet' para '/relatorio' para bater com o ícone
+          className={isActive('/relatorio') ? 'nav-item active' : 'nav-item'}
         >
           <IoStatsChart />
         </Link>
