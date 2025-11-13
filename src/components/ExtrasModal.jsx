@@ -1,24 +1,26 @@
-import React, { useState } from 'react';
+/*
+ * Arquivo: /src/components/ExtrasModal.jsx
+ * (VERSÃO CORRIGIDA - AGORA É GENÉRICO)
+ */
+import React, { useState, useEffect } from 'react';
 import './ExtrasModal.css'; 
 import { FaTimes, FaPlus, FaMinus } from 'react-icons/fa';
-import { PiFanFill } from 'react-icons/pi';
-import { FaFire } from 'react-icons/fa';
-import { IoGameController } from 'react-icons/io5';
 
-// 1. Banco de dados dos ITENS EXTRAS
-const extraItems = [
-  { id: 'ventilador', name: 'Ventilador', icon: <PiFanFill />, power: 100 },
-  { id: 'aquecedor', name: 'Aquecedor Elétrico', icon: <FaFire />, power: 2000 },
-  { id: 'videogame', name: 'Videogames', icon: <IoGameController />, power: 150 },
-  // Adicione mais itens extras aqui se precisar
-];
+// O "Banco de dados" de itens foi REMOVIDO DAQUI.
+// Agora, os itens vêm das "props".
 
-function ExtrasModal({ initialQuantities, onClose, onSave }) {
+function ExtrasModal({ roomName, extraItems, initialQuantities, onClose, onSave }) {
   
-  // 2. Estado local para o modal
-  const [quantities, setQuantities] = useState(initialQuantities);
+  // Estado local para o modal
+  const [quantities, setQuantities] = useState({});
 
-  // 3. Funções de controle (iguais às da página principal)
+  // Este useEffect garante que o estado do modal
+  // seja atualizado com as quantidades da página.
+  useEffect(() => {
+    setQuantities(initialQuantities);
+  }, [initialQuantities]);
+
+  // Funções de controle
   const toggleItem = (item) => {
     setQuantities(prev => {
       const newQ = { ...prev };
@@ -41,10 +43,9 @@ function ExtrasModal({ initialQuantities, onClose, onSave }) {
     });
   };
 
-  // 4. Função para salvar e fechar
   const handleSaveAndClose = () => {
-    onSave(quantities); // Envia as quantidades de volta para a página
-    onClose(); // Fecha o modal
+    onSave(quantities);
+    onClose();
   };
 
   return (
@@ -52,7 +53,8 @@ function ExtrasModal({ initialQuantities, onClose, onSave }) {
       <div className="extras-modal-content" onClick={(e) => e.stopPropagation()}>
         
         <header className="extras-modal-header">
-          <h2>Outras Opções (Sala)</h2>
+          {/* TÍTULO AGORA É DINÂMICO */}
+          <h2>Outras Opções ({roomName})</h2>
           <button className="extras-modal-close" onClick={onClose}>
             <FaTimes />
           </button>
@@ -60,6 +62,7 @@ function ExtrasModal({ initialQuantities, onClose, onSave }) {
         
         <div className="extras-modal-body">
           <div className="item-list-modal">
+            {/* AGORA MAPEIA OS ITENS RECEBIDOS VIA 'extraItems' */}
             {extraItems.map((item) => {
               const isSelected = !!quantities[item.id];
               const quantity = quantities[item.id] || 0;

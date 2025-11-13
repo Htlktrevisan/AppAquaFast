@@ -25,9 +25,34 @@ const tipsDatabase = {
       "Verifique a borracha de vedação da sua geladeira.",
     ],
   },
+  
+  // --- DICAS DO QUARTO ADICIONADAS ---
+  quarto: {
+    yellow: [
+      "Desligue o computador ou coloque-o em modo de espera quando não estiver usando.",
+      "Evite deixar carregadores de celular na tomada depois que a carga estiver completa.",
+    ],
+    red: [
+      "O Ar-Condicionado do quarto é um grande consumidor. Tente usá-lo com o timer ou em uma temperatura mais amena (ex: 23°C).",
+      "Luzes de LED no abajur e no teto podem economizar até 80% em iluminação.",
+    ],
+  },
+
+  // --- DICAS DO BANHEIRO ADICIONADAS ---
+  banheiro: {
+    yellow: [
+      "Tente reduzir o tempo de uso do secador de cabelo.",
+      "Não deixe a luz do espelho acesa sem necessidade.",
+    ],
+    red: [
+      "O chuveiro elétrico é o maior vilão da casa! Tente tomar banhos mais curtos.",
+      "Nos dias mais quentes, mude a chave do chuveiro para a posição 'Verão' (Morno). Isso pode economizar até 30% da energia do banho.",
+    ],
+  },
 };
 
 function EnergyTipsModal({ room, status, onClose }) {
+  // Esta lógica agora vai encontrar as dicas do "quarto" e "banheiro"
   const tips = tipsDatabase[room] ? tipsDatabase[room][status] : ["Nenhuma dica disponível."];
 
   return (

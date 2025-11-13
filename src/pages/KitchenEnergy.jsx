@@ -1,38 +1,40 @@
+/*
+ * Arquivo: /src/pages/KitchenEnergy.jsx
+ * (VERSÃO CORRIGIDA)
+ */
 import React, { useState, useMemo } from 'react';
-import { Link, useNavigate } from 'react-router-dom'; // OK (useParams removido)
-import './RoomEnergy.css'; 
-import logo from '../assets/Logo.png'; 
+import { Link, useNavigate } from 'react-router-dom';
+import './KitchenEnergy.css'; // <--- GARANTA QUE ESTÁ IMPORTANDO O CSS DA COZINHA
+import logo from '../assets/Logo.png'; // <--- BUG 1: IMPORT DO LOGO ADICIONADO
 import { FaUserCircle, FaShoppingCart, FaArrowLeft, FaPlus, FaMinus, FaRegSnowflake, FaFire } from 'react-icons/fa';
-import { PiTelevisionFill, PiLampFill, PiFanFill } from 'react-icons/pi';
-import { BsSnow } from 'react-icons/bs'; 
-import { MdEdit } from 'react-icons/md';
-import { IoGameController } from 'react-icons/io5'; 
+import { MdEdit, MdMicrowave, MdBlender } from 'react-icons/md'; // Adicionei ícone de liquidificador
 import ExtrasModal from '../components/ExtrasModal.jsx';
 
-// OK (Somente "sala")
+// Itens e limites APENAS da Cozinha
 const allRoomItems = {
-  sala: [
-    { id: 'tv', name: 'TV', icon: <PiTelevisionFill />, power: 200, extra: false },
-    { id: 'geladeira', name: 'Geladeira', icon: <FaRegSnowflake />, power: 180, extra: false }, 
-    { id: 'lampada', name: 'Lâmpada', icon: <PiLampFill />, power: 60, extra: false },
-    { id: 'ar', name: 'Ar-Condicionado', icon: <BsSnow />, power: 1500, extra: false },
-    { id: 'ventilador', name: 'Ventilador', icon: <PiFanFill />, power: 100, extra: true },
-    { id: 'aquecedor', name: 'Aquecedor Elétrico', icon: <FaFire />, power: 2000, extra: true }, 
-    { id: 'videogame', name: 'Videogames', icon: <IoGameController />, power: 150, extra: true }, 
+  cozinha: [
+    // Itens Principais
+    { id: 'fogao', name: 'Fogão Elétrico', icon: <FaFire />, power: 180, extra: false },
+    { id: 'geladeira', name: 'Geladeira', icon: <FaRegSnowflake />, power: 180, extra: false },
+    { id: 'forno', name: 'Forno Elétrico', icon: <FaFire />, power: 2500, extra: false },
+    { id: 'microondas', name: 'Micro-ondas', icon: <MdMicrowave />, power: 1200, extra: false },
+    // Itens Extras (para o modal)
+    { id: 'liquidificador', name: 'Liquidificador', icon: <MdBlender />, power: 500, extra: true },
   ],
 };
 
-// OK (Somente "sala")
 const roomThresholds = {
-  sala: { yellow: 500, red: 1500 },
+  cozinha: { yellow: 1000, red: 3000 },
 };
 
-function RoomEnergy() {
-  const roomName = 'sala'; // OK (Valor fixo)
+function KitchenEnergy() {
+  const roomName = 'cozinha';
   const navigate = useNavigate();
   
+  // Filtra os itens (principais e extras)
   const mainItems = allRoomItems[roomName.toLowerCase()]?.filter(item => !item.extra) || [];
-  
+  const extraItemsForModal = allRoomItems[roomName.toLowerCase()]?.filter(item => item.extra) || [];
+
   const [itemQuantities, setItemQuantities] = useState({});
   const [showExtrasModal, setShowExtrasModal] = useState(false);
 
@@ -78,7 +80,7 @@ function RoomEnergy() {
       }
     });
     return { totalPower: power, totalQuantity: quantity };
-  }, [itemQuantities]); // OK (roomName removido da dependência)
+  }, [itemQuantities]);
 
   const handleSave = () => {
     const roomKey = roomName.toLowerCase();
@@ -99,8 +101,12 @@ function RoomEnergy() {
 
   return (
     <div className="room-energy-container">
-      {showExtrasModal && (
+      
+      {/* BUG 2: PROPS DO MODAL CORRIGIDAS */}
+      {showExtrasModal && (
         <ExtrasModal 
+          roomName={title}
+          extraItems={extraItemsForModal}
           initialQuantities={itemQuantities}
           onClose={() => setShowExtrasModal(false)}
           onSave={handleSaveExtras}
@@ -139,8 +145,7 @@ function RoomEnergy() {
                 <button 
                   className="item-button"
                   onClick={() => toggleItem(item)}
-                > 
-                    {/* ^^^ AQUI ESTAVA O ERRO ^^^ */}
+                >
                   {item.icon}
                   <span>{item.name}</span>
                   <span className="item-power">{item.power} W</span>
@@ -149,8 +154,8 @@ function RoomEnergy() {
                   <div className="quantity-control-inline">
                     <button onClick={() => changeQuantity(item.id, -1)}><FaMinus /></button>
                     <input 
-                      type="number" 
-      _                value={quantity} 
+                    _ type="number" 
+                      value={quantity} 
                       onChange={(e) => setItemQuantities({...itemQuantities, [item.id]: Number(e.target.value)})}
                     />
                     <button onClick={() => changeQuantity(item.id, +1)}><FaPlus /></button>
@@ -166,7 +171,7 @@ function RoomEnergy() {
           </button>
         </div>
         
-        <h2 className="total-title">Total da Sala</h2>
+        <h2 className="total-title">Total da Cozinha</h2>
         
         <div className="power-quantity-section">
           <div className="input-field">
@@ -185,7 +190,7 @@ function RoomEnergy() {
               disabled 
             />
           </div>
-      </div>
+        </div>
 
         <button className="save-button" onClick={handleSave}>
           Salvar alteração
@@ -195,4 +200,4 @@ function RoomEnergy() {
   );
 }
 
-export default RoomEnergy;
+export default KitchenEnergy;
