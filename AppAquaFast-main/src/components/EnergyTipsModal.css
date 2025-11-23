@@ -1,0 +1,92 @@
+.modal-overlay-tips {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.modal-content-tips {
+  background-color: #ffffff;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 380px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  animation: fadeInTips 0.3s ease-out;
+  overflow: hidden; 
+}
+.modal-close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.3);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 1002;
+}
+.modal-content-tips .modal-close-button { 
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.modal-header-tips {
+  padding: 20px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.modal-header-tips.status-yellow {
+  background-color: #FFC107;
+}
+.modal-header-tips.status-red {
+  background-color: #D32F2F;
+}
+.modal-header-tips svg {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+.modal-header-tips h2 {
+  margin: 0;
+  font-size: 22px;
+  text-align: center;
+}
+.modal-body-tips {
+  padding: 20px;
+}
+.modal-body-tips p {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+.tips-list {
+  padding-left: 20px;
+  margin: 0;
+}
+.tips-list li {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+@keyframes fadeInTips {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

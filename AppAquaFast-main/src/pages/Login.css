@@ -1,0 +1,154 @@
+/* ===== 1. DEFINIÇÃO DAS ANIMAÇÕES (Igual ao Register) ===== */
+@keyframes simpleFadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUpFromBottom {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* =========================================== */
+
+
+/* Container principal da página de login */
+.login-container {
+  background-color: #ffffff;
+  min-height: 100vh;
+}
+
+/* 1. Parte de Cima (Logo) */
+.login-logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  /* Animação de fade-in na logo */
+  animation: simpleFadeIn 0.6s ease-out forwards;
+}
+
+.login-logo {
+  max-width: 250px; /* Mesmo tamanho da logo do Register */
+  height: auto;
+}
+
+/* 2. Parte de Baixo (Formulário) */
+.login-form-container {
+  background-color: #16558C; /* Mesmo azul do Register */
+  padding: 30px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  min-height: 60vh; /* Mesma altura do Register */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /* Animação de slide-up */
+  opacity: 0;
+  animation: slideUpFromBottom 0.8s ease-out 0.2s forwards;
+}
+
+.login-form-container h2 {
+  color: #ffffff;
+  font-weight: 300;
+  margin-bottom: 25px;
+  font-size: 24px;
+}
+
+.login-form-container form {
+  width: 100%;
+}
+
+/* 3. Estilo dos Inputs (campos) */
+.login-input-group {
+  margin-bottom: 20px;
+}
+
+.login-input-group input {
+  width: 100%;
+  height: 55px;
+  border-radius: 28px;
+  border: none;
+  background-color: #ffffff;
+  
+  /* Diferente do Register: sem espaço para ícone */
+  padding: 0 25px; 
+  
+  box-sizing: border-box; 
+  font-size: 16px;
+}
+
+.login-input-group input:focus {
+  outline: none;
+}
+
+/* 4. Estilo do Botão */
+.login-button {
+  width: 100%;
+  height: 55px;
+  background-color: #22d3ee; /* Cor ciano */
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 28px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: #06b6d4;
+}
+
+/* 5. Estilo "Ou logar com" */
+.login-social-text {
+  color: #ffffff;
+  font-size: 14px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+/* 6. Estilo dos Ícones Sociais */
+.login-social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Espaço entre os ícones */
+  width: 100%;
+}
+
+.login-social-icon {
+  width: 50px;
+  height: 50px;
+  background-color: #ffffff;
+  border-radius: 50%; /* Faz o círculo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px; /* Tamanho do ícone */
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.login-social-icon:hover {
+  transform: scale(1.1); /* Efeito de zoom */
+}
+
+/* Cores específicas de cada marca */
+.login-social-icon#google { color: #DB4437; }
+.login-social-icon#facebook { color: #4267B2; }
+.login-social-icon#linkedin { color: #0A66C2; }
+
+
+/* 7. Estilo do Link de Cadastro */
+.login-register-link {
+  margin-top: 30px;
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.login-register-link a {
+  color: #22d3ee;
+  font-weight: bold;
+  text-decoration: none;
+}

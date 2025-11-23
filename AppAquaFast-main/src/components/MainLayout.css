@@ -1,0 +1,57 @@
+/* O container do layout garante que o conteúdo não seja coberto pela barra */
+.layout-container {
+  padding-bottom: 70px; /* Altura da barra de navegação */
+}
+
+.layout-content {
+  padding: 0;
+}
+
+/* A barra de navegação fixa no rodapé */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  max-width: 430px; /* Limita a largura ao 'body' */
+  margin: 0 auto; /* Centraliza */
+  height: 70px;
+  background-color: #EFEBE2; /* Fundo da navbar BEGE */
+  display: flex;
+  justify-content: space-around;
+  align-items: center; 
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  overflow: visible; 
+}
+
+.nav-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  text-decoration: none;
+  color: #000000; /* Ícones inativos PRETOS */
+  width: 60px; 
+  height: 60px;
+  border-radius: 50%; 
+  transition: all 0.3s ease-out;
+}
+
+.nav-item svg {
+  font-size: 26px;
+  transition: color 0.3s ease;
+  z-index: 2; 
+}
+
+/* O ÍCONE "CLICADO" (ATIVO) - EFEITO BOLHA */
+.nav-item.active {
+  background-color: #EFEBE2; /* "bolha" BEGE */
+  transform: translateY(-20px); /* "sobe" */
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-item.active svg {
+  color: #0F7CBF; /* Azul da empresa */
+}

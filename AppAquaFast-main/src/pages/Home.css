@@ -1,0 +1,202 @@
+/* Container geral da Home */
+.home-container {
+  padding: 0 15px;
+  background-color: #ffffff;
+  min-height: calc(100vh - 70px); 
+}
+
+/* 1. Cabeçalho */
+.home-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 -15px;
+  padding: 15px 15px;
+  background-color: #EFEBE2;
+}
+.home-logo-header {
+  height: 40px; 
+}
+.home-header-icons {
+  font-size: 27px;
+  color: black; 
+  display: flex;
+  gap: 15px;
+}
+/* AQUI ESTÃO AS REGRAS */
+.header-icon-link {
+  color: black; /* Padrão é preto */
+  text-decoration: none;
+}
+.header-icon-link.active-blue {
+  color: #0F7CBF; /* Classe que deixa azul */
+}
+
+
+/* 2. Seção "Nossa Missão" (Imagem) */
+.home-section.mission {
+  padding: 0;
+  box-shadow: none;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.mission-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 20px;
+}
+
+/* 3. Seção "Planos" */
+/* 3. Seção "Planos" */
+.home-section.plans {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; 
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.plan-card {
+  border-radius: 20px;
+  text-align: center;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  
+  /* --- ADICIONE ESTAS DUAS LINHAS --- */
+  text-decoration: none; /* Tira o sublinhado */
+  color: inherit;        /* Garante que o texto não fique roxo/azul */
+  /* ---------------------------------- */
+}
+
+.plan-card:hover {
+  transform: translateY(-5px);
+}
+.plan-card-top {
+  background-color: #ffffff;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding: 15px 10px 10px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #f0f0f0; 
+  border-bottom: none; 
+}
+.plan-card-top img {
+  height: 65px; 
+  width: 80px; 
+  margin-bottom: 0; 
+}
+.plan-card-bottom {
+  background-color: #0F7CBF;
+  color: #ffffff;
+  padding: 10px;
+  font-weight: 500;
+  font-size: 12px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border: none; 
+}
+.plan-card-bottom p {
+  margin: 0;
+}
+
+/* 4. Card de Produto */
+.product-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px; 
+  padding: 20px; 
+  border-radius: 20px;
+  background-color: #0F7CBF; 
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+.product-image-container {
+  background-color: #ffffff;
+  border-radius: 15px; 
+  padding: 15px;
+  width: 120px; 
+  flex-shrink: 0; 
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.product-image {
+  width: 100%; 
+  height: auto;
+  display: block;
+}
+
+/* 5. Card de Comentário */
+.comment-card {
+  display: flex;
+  align-items: center; 
+  gap: 15px;
+  padding: 25px;
+  border-radius: 20px;
+  background-color: #0F7CBF; 
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+.card-text-content {
+  flex: 1;
+}
+.card-text-content h2 {
+  margin: 0 0 10px 0;
+  font-size: 20px; 
+}
+.card-text-content p {
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  opacity: 0.9;
+  line-height: 1.4;
+}
+.comment-text-body {
+  font-style: italic; 
+}
+.home-button-white {
+  display: inline-block;
+  text-decoration: none;
+  background-color: #ffffff;
+  color: #0F7CBF; 
+  border: none;
+  border-radius: 15px;
+  padding: 10px 20px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+}
+.card-title-link {
+  text-decoration: none;
+  color: inherit;
+}
+.card-title-link h2 {
+  display: inline-block;
+  transition: opacity 0.2s;
+}
+.card-title-link:hover h2 {
+  opacity: 0.8; 
+}
+.comment-image {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 3px solid #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff; 
+  flex-shrink: 0; 
+}
+.neymar{
+  width: 40px; 
+  height: auto;
+  border-radius: 50%; 
+}
