@@ -1,6 +1,6 @@
 /*
  * Arquivo: /src/pages/Energy.jsx
- * (CORRIGIDO para puxar as dicas do Quarto/Banheiro)
+ * (CORRIGIDO - navegação para os cômodos)
  */
 
 import React, { useState, useEffect } from 'react';
@@ -28,13 +28,17 @@ function Energy() {
       setShowTipsModal(true);
     }
   };
+  
   const handleCloseTips = () => {
     setShowTipsModal(false);
     setModalRoom(null);
   };
 
   const handleRoomClick = (roomName) => {
-    navigate(`/energia/${roomName.toLowerCase()}`);
+    // Garante que o nome está em minúsculo para a URL
+    const roomPath = roomName.toLowerCase();
+    console.log('Navegando para:', `/energia/${roomPath}`); // Debug
+    navigate(`/energia/${roomPath}`);
   };
 
   const getStatus = (roomName) => {
@@ -53,7 +57,9 @@ function Energy() {
       )}
 
       <header className="energy-header">
-        <img src={logo} alt="AquaFast" className="energy-logo-header" />
+        <Link to="/home">
+          <img src={logo} alt="AquaFast" className="energy-logo-header" />
+        </Link>
         <div className="energy-header-icons">
           <Link to="/profile" className="header-icon-link">
             <FaUserCircle />
@@ -75,7 +81,7 @@ function Energy() {
           {/* --- CARD DA SALA --- */}
           <div 
             className={`room-card status-${getStatus('sala')}`} 
-            onClick={() => handleRoomClick('Sala')}
+            onClick={() => handleRoomClick('sala')}
           >
             {(getStatus('sala') === 'yellow' || getStatus('sala') === 'red') && (
               <button 
@@ -92,7 +98,7 @@ function Energy() {
           {/* --- CARD DA COZINHA --- */}
           <div 
             className={`room-card status-${getStatus('cozinha')}`} 
-            onClick={() => handleRoomClick('Cozinha')}
+            onClick={() => handleRoomClick('cozinha')}
           >
             {(getStatus('cozinha') === 'yellow' || getStatus('cozinha') === 'red') && (
               <button 
@@ -114,13 +120,11 @@ function Energy() {
           {/* --- CARD DO QUARTO --- */}
           <div 
             className={`room-card status-${getStatus('quarto')}`} 
-            onClick={() => handleRoomClick('Quarto')}
+            onClick={() => handleRoomClick('quarto')}
           >
             {(getStatus('quarto') === 'yellow' || getStatus('quarto') === 'red') && (
               <button 
                 className="warning-icon" 
-                // --- CORREÇÃO AQUI ---
-                // Trocado de 'Quarto' para 'quarto' (minúsculo)
                 onClick={(e) => handleOpenTips(e, 'quarto', getStatus('quarto'))}
               >
                 <FaExclamationTriangle />
@@ -133,13 +137,11 @@ function Energy() {
           {/* --- CARD DO BANHEIRO --- */}
           <div 
             className={`room-card status-${getStatus('banheiro')}`} 
-            onClick={() => handleRoomClick('Banheiro')}
+            onClick={() => handleRoomClick('banheiro')}
           >
             {(getStatus('banheiro') === 'yellow' || getStatus('banheiro') === 'red') && (
               <button 
                 className="warning-icon" 
-                // --- CORREÇÃO AQUI ---
-                // Trocado de 'Banheiro' para 'banheiro' (minúsculo)
                 onClick={(e) => handleOpenTips(e, 'banheiro', getStatus('banheiro'))}
               >
                 <FaExclamationTriangle />

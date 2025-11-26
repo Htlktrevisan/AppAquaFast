@@ -1,288 +1,378 @@
-/* ========================================= */
-/* 🎨 Configurações da Página de Produto     */
-/* ========================================= */
-
+/* CONTAINER */
 .product-page-container {
-    background-color: #ffffff;
+    width: 100%;
     min-height: 100vh;
+    background: linear-gradient(to bottom, #f8f9fa 0%, #e9ecef 100%);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    font-family: 'Inter', sans-serif;
-    position: relative;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* ========================================= */
-/* 🏠 Header (Bege)                          */
-/* ========================================= */
-
+/* HEADER */
 .product-header {
-    width: 100%;
-    background-color: #f2f0e9; /* Bege */
-    display: flex;
-    justify-content: center;
-    padding: 15px 0;
+    background-color: #EFEBE2;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     position: sticky;
     top: 0;
     z-index: 100;
 }
 
 .product-header-content {
-    width: 90%;
-    max-width: 450px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .product-logo {
-    height: 35px;
-    object-fit: contain;
+    height: 40px;
+    transition: transform 0.3s ease;
+}
+
+.product-logo:hover {
+    transform: scale(1.05);
 }
 
 .product-header-icons {
     display: flex;
     gap: 15px;
-    font-size: 24px;
+    font-size: 27px;
 }
 
 .product-header-icons .icon-link {
-    color: #333;
+    color: black;
     text-decoration: none;
+    transition: all 0.3s ease;
 }
 
-/* ========================================= */
-/* 📜 Conteúdo e Títulos                     */
-/* ========================================= */
+.product-header-icons .icon-link:hover {
+    color: #0093dd;
+}
 
+.product-header-icons .icon-link.active-blue {
+    color: #0F7CBF;
+}
+
+/* SCROLLABLE CONTENT */
 .product-scrollable-content {
-    width: 100%;
-    max-width: 450px;
-    display: flex;
-    flex-direction: column;
+    flex: 1;
+    overflow-y: auto;
     padding-bottom: 20px;
 }
 
-/* A Faixa Azul com borda arredondada na direita (igual mockup) */
+/* TITLE STRIPS */
 .section-title-strip {
-    background-color: #0076CE;
-    color: white;
-    padding: 10px 20px;
-    margin-top: 20px;
-    margin-bottom: 15px;
-    width: fit-content; /* Ocupa só o espaço do texto */
-    min-width: 50%;     /* Mas garante um tamanho mínimo */
-    border-radius: 0 25px 25px 0; /* Arredonda só a direita */
+    background: linear-gradient(135deg, #0093dd 0%, #0077b6 100%);
+    padding: 12px 25px;
+    color: #fff;
+    font-weight: bold;
+    margin: 25px 0 20px 0;
+    border-radius: 0 30px 30px 0;
+    max-width: fit-content;
+    text-transform: uppercase;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(0, 147, 221, 0.3);
+    position: relative;
 }
 
-.section-title-strip h1, 
+.section-title-strip::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.section-title-strip h1,
 .section-title-strip h2 {
     margin: 0;
-    font-size: 18px;
-    font-weight: 600;
+    font-size: 1rem;
+    font-weight: 700;
 }
 
-/* ========================================= */
-/* 📸 Galeria de Imagens                     */
-/* ========================================= */
-
+/* GALLERY */
 .product-gallery-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 10px;
+    padding: 25px 20px;
+    text-align: center;
 }
 
 .product-image-box {
-    width: 90%;
-    height: 250px;
-    background-color: #e0e0e0; /* Cinza do mockup */
+    width: 100%;
+    max-width: 450px;
+    height: 280px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
     border-radius: 20px;
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    border: 2px solid #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+.product-image-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.18);
 }
 
 .image-counter {
     position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 14px;
-    color: #555;
-    font-weight: bold;
+    top: 12px;
+    right: 12px;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
-.main-product-img {
-    max-width: 70%;
-    max-height: 70%;
-    object-fit: contain;
-}
-
-/* Pontinhos (Dots) */
-.gallery-dots {
+.product-placeholder {
+    width: 100%;
+    height: 100%;
     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.placeholder-icon {
+    font-size: 5rem;
+    color: #0093dd;
+    filter: drop-shadow(0 4px 8px rgba(0, 147, 221, 0.3));
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.1); opacity: 1; }
+}
+
+.gallery-dots {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
     gap: 8px;
-    margin-top: 12px;
 }
 
 .dot {
     width: 10px;
     height: 10px;
-    background-color: #ccc;
+    background: #d0d0d0;
     border-radius: 50%;
+    display: inline-block;
     cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.dot:hover {
+    background: #a0a0a0;
+    transform: scale(1.2);
 }
 
 .dot.active {
-    background-color: #0076CE; /* Ativo fica azul */
+    background: #0093dd;
+    width: 30px;
+    border-radius: 10px;
+    border-color: #0093dd;
 }
 
-/* ========================================= */
-/* 📦 Mini Planos                            */
-/* ========================================= */
-
+/* MINI PLAN CARDS */
 .product-plans-row {
     display: flex;
-    justify-content: space-between;
-    padding: 0 20px;
-    gap: 10px;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px;
+    flex-wrap: wrap;
 }
 
 .mini-plan-card {
-    flex: 1;
+    width: 110px;
+    text-align: center;
+    background: #fff;
     border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     overflow: hidden;
-    border: 1px solid #ddd;
-    display: flex;
-    flex-direction: column;
+    text-decoration: none;
+    color: #000;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.mini-plan-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    border-color: #0093dd;
 }
 
 .mini-card-top {
-    background: white;
+    background: #f8f9fa;
     padding: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .mini-card-top img {
-    width: 40px; /* Logos pequenos */
+    width: 100%;
     height: auto;
+    transition: transform 0.3s ease;
+}
+
+.mini-plan-card:hover .mini-card-top img {
+    transform: scale(1.1);
 }
 
 .mini-card-bottom {
-    background-color: #0076CE;
-    color: white;
-    font-size: 11px;
-    text-align: center;
-    padding: 8px 2px;
-    font-weight: 600;
+    padding: 10px 5px;
+    background: linear-gradient(135deg, #0093dd 0%, #0077b6 100%);
+    color: #fff;
+    font-weight: bold;
+    font-size: 0.9rem;
 }
 
-/* ========================================= */
-/* 📝 Descrição e Preço                      */
-/* ========================================= */
-
+/* DESCRIPTION */
 .product-description-box {
-    padding: 0 20px;
-    color: #333;
+    padding: 25px;
+    margin: 0 15px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    border-left: 5px solid #0093dd;
 }
 
 .product-description-box p {
-    font-size: 14px;
-    line-height: 1.4;
-    margin-bottom: 10px;
+    margin: 0 0 15px 0;
+    line-height: 1.7;
+    color: #333;
+    font-size: 1rem;
 }
 
 .secondary-text {
-    font-size: 12px;
     color: #666;
+    font-size: 0.95rem;
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 10px;
+    border-left: 3px solid #0093dd;
 }
 
 .price-container {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
+    margin-top: 25px;
+    padding: 20px;
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 147, 221, 0.15);
 }
 
 .price-label {
-    font-size: 22px;
+    font-size: 2rem;
     font-weight: bold;
-    color: #333;
+    color: #0093dd;
+    display: block;
+    text-shadow: 0 2px 4px rgba(0, 147, 221, 0.2);
 }
 
 .installments-label {
-    font-size: 14px;
+    display: block;
+    margin-top: 8px;
+    font-size: 0.95rem;
     color: #555;
+    font-weight: 500;
 }
 
-/* ========================================= */
-/* 🛒 Botões de Ação                         */
-/* ========================================= */
-
+/* BUTTONS */
 .product-action-buttons {
-    margin-top: 25px;
-    padding: 0 20px;
+    padding: 20px;
     display: flex;
-    flex-direction: column;
-    gap: 12px;
+    gap: 15px;
+    max-width: 600px;
+    margin: 0 auto 20px auto;
+}
+
+.prod-btn-buy,
+.prod-btn-cart {
+    flex: 1;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .prod-btn-buy {
-    width: 100%;
-    padding: 15px;
-    background-color: #0076CE;
+    background: linear-gradient(135deg, #0093dd 0%, #0077b6 100%);
     color: white;
-    border: none;
-    border-radius: 10px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.prod-btn-buy:hover {
+    background: linear-gradient(135deg, #0077b6 0%, #005f8f 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 147, 221, 0.4);
+}
+
+.prod-btn-buy:active {
+    transform: translateY(0);
 }
 
 .prod-btn-cart {
-    width: 100%;
-    padding: 15px;
-    background-color: #f2f2f2; /* Cinza claro */
-    color: #0076CE;
-    border: none;
-    border-radius: 10px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
+    background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+    color: #333;
+    border: 2px solid #0093dd;
 }
 
-/* ========================================= */
-/* 🧭 Bottom Nav Bar (Footer)                */
-/* ========================================= */
-
-.bottom-nav-bar {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    max-width: 480px; /* Para manter alinhado em telas grandes */
-    background-color: #EFEBE2; /* Fundo bege do footer */
-    height: 60px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    border-top: 1px solid #ddd;
-    z-index: 1000;
+.prod-btn-cart:hover {
+    background: linear-gradient(135deg, #e0e0e0 0%, #d0d0d0 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
 }
 
-.nav-item {
-    color: black;
-    font-size: 24px;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: color 0.2s;
+.prod-btn-cart:active {
+    transform: translateY(0);
 }
 
-.nav-item:hover, .nav-item.active {
-    color: #0076CE; /* Azul ao passar o mouse ou ativo */
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .product-logo {
+        height: 40px;
+    }
+    
+    .product-header-icons .icon-link {
+        font-size: 1.6rem;
+    }
+    
+    .section-title-strip {
+        font-size: 0.85rem;
+        padding: 10px 20px;
+    }
+    
+    .product-image-box {
+        height: 220px;
+    }
+    
+    .placeholder-icon {
+        font-size: 4rem;
+    }
+    
+    .price-label {
+        font-size: 1.6rem;
+    }
+    
+    .product-action-buttons {
+        flex-direction: column;
+    }
+    
+    .prod-btn-buy,
+    .prod-btn-cart {
+        width: 100%;
+    }
 }

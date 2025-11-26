@@ -27,7 +27,14 @@
 .header-icon-link {
   color: black; /* Padrão é preto */
   text-decoration: none;
+  transition: all 0.3s ease;
 }
+
+.header-icon-link:hover {
+  color: #0F7CBF;
+  transform: scale(1.1);
+}
+
 .header-icon-link.active-blue {
   color: #0F7CBF; /* Classe que deixa azul */
 }
@@ -172,7 +179,19 @@
   font-size: 14px;
   cursor: pointer;
   text-align: center;
+  transition: all 0.3s ease;
 }
+
+.home-button-white:hover {
+  background-color: #f0f0f0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.home-button-white:active {
+  transform: translateY(0);
+}
+
 .card-title-link {
   text-decoration: none;
   color: inherit;

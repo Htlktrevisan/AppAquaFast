@@ -8,8 +8,8 @@ import './RoomEnergy.css'; // <-- USANDO O CSS AZUL DA SALA
 import logo from '../assets/Logo.png'; 
 import { FaUserCircle, FaShoppingCart, FaArrowLeft, FaPlus, FaMinus, FaShower } from 'react-icons/fa';
 import { PiLampFill } from 'react-icons/pi';
-import { MdEdit } from 'react-icons/md';
-import { GiHairDryer } from 'react-icons/gi'; // Ícone de Secador de Cabelo
+import { MdEdit, MdOutlineDryCleaning } from 'react-icons/md'; // <-- Adicionado MdOutlineDryCleaning
+// import { GiHairDryer } from 'react-icons/gi'; // Ícone removido/comentado para corrigir o erro
 import ExtrasModal from '../components/ExtrasModal.jsx';
 
 // --- ITENS E LIMITES DO BANHEIRO ---
@@ -19,7 +19,8 @@ const allRoomItems = {
     { id: 'chuveiro', name: 'Chuveiro Elétrico', icon: <FaShower />, power: 5500, extra: false },
     { id: 'lampada-banheiro', name: 'Lâmpada', icon: <PiLampFill />, power: 25, extra: false },
     // Itens Extras (para o modal)
-    { id: 'secador-cabelo', name: 'Secador de Cabelo', icon: <GiHairDryer />, power: 1800, extra: true },
+    // Ícone atualizado para MdOutlineDryCleaning para evitar o erro de sintaxe
+    { id: 'secador-cabelo', name: 'Secador de Cabelo', icon: <MdOutlineDryCleaning />, power: 1800, extra: true }, 
   ],
 };
 
@@ -118,7 +119,7 @@ function BathroomEnergy() {
 
       <header className="room-energy-header">
         <img src={logo} alt="AquaFast" className="room-energy-logo-header" />
-        <div className="energy-header-icons">
+        <div className="room-energy-header-icons">
           <Link to="/profile" className="header-icon-link">
             <FaUserCircle />
           </Link>

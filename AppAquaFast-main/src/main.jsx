@@ -20,13 +20,12 @@ import Comments from './pages/Comments.jsx';
 import Energy from './pages/Energy.jsx';
 
 // --- NOSSAS PÁGINAS DE CÔMODO ---
-import RoomEnergy from './pages/RoomEnergy.jsx';     // Página da Sala
+import RoomEnergy from './pages/RoomEnergy.jsx';       // Página da Sala
 import KitchenEnergy from './pages/KitchenEnergy.jsx'; // Página da Cozinha
 import BedroomEnergy from './pages/BedroomEnergy.jsx'; // Página do Quarto
+import BathroomEnergy from './pages/BathroomEnergy.jsx'; // Página do Banheiro
 
 import Plans from './pages/Plans.jsx';
-
-// 📌 IMPORTAÇÃO DA NOVA PÁGINA DE PRODUTO (ADICIONADO)
 import Product from './pages/Product.jsx';
 
 const router = createBrowserRouter([
@@ -47,8 +46,7 @@ const router = createBrowserRouter([
 
   // --- Rotas COM a barra de navegação ---
   {
-    path: '/',
-    element: <MainLayout />, // O MainLayout é o "pai"
+    element: <MainLayout />,
     children: [
       {
         path: '/home',
@@ -66,25 +64,18 @@ const router = createBrowserRouter([
         path: '/comments',
         element: <Comments />,
       },
-      
-      // Rota dos Planos
       {
         path: '/planos',
         element: <Plans />,
       },
-
-      // 📌 NOVA ROTA DO PRODUTO (ADICIONADO)
       {
         path: '/produto',
         element: <Product />,
       },
-
       {
-        path: '/energia', // A tela de "Escolher Cômodo"
+        path: '/energia',
         element: <Energy />,
       },
-      
-      // --- ROTAS DOS CÔMODOS ---
       {
         path: '/energia/sala',
         element: <RoomEnergy />,
@@ -96,6 +87,10 @@ const router = createBrowserRouter([
       {
         path: '/energia/quarto',
         element: <BedroomEnergy />,
+      },
+      {
+        path: '/energia/banheiro',
+        element: <BathroomEnergy />,
       },
     ],
   },

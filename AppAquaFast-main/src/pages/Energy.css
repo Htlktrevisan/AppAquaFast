@@ -3,6 +3,7 @@
   min-height: calc(100vh - 70px);
   padding-bottom: 20px;
 }
+
 .energy-header {
   display: flex;
   justify-content: space-between;
@@ -10,45 +11,55 @@
   padding: 15px 15px;
   background-color: #EFEBE2;
 }
+
 .energy-logo-header {
   height: 40px; 
 }
+
 .energy-header-icons {
   font-size: 30px;
   display: flex;
   gap: 20px;
 }
+
 .header-icon-link {
   color: black; 
   text-decoration: none;
 }
-.energy-content {
-  padding: 0 15px;
-}
+
+
+
 .energy-title-bar {
   background-color: #0F7CBF;
   color: #ffffff;
-  padding: 10px 15px;
-  margin: 20px -15px 25px -15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 12px 20px;
+  margin: 20px 0 25px 0;
+  border-radius: 0 25px 25px 0;
+  max-width: fit-content;
 }
+
 .energy-title-bar h2 {
   margin: 0 0 4px 0;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
   text-align: left;
 }
+
 .energy-title-bar p {
   margin: 0;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 300;
   text-align: left;
+  opacity: 0.95;
 }
+
 .room-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 15px;
+    padding: 0 15px;
 }
+
 .room-card {
   background-color: #ffffff;
   border: 1px solid #e0e0e0;
@@ -65,21 +76,25 @@
   position: relative; 
   overflow: hidden; 
 }
+
 .room-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
 }
+
 .room-icon {
   font-size: 50px;
   color: #000000;
   margin-bottom: 15px;
 }
+
 .room-card span {
   font-size: 18px;
   font-weight: 600;
   color: #000000;
   text-align: center;
 }
+
 .warning-icon {
   position: absolute;
   top: 10px;
@@ -90,30 +105,39 @@
   cursor: pointer;
   z-index: 5;
 }
+
 .room-card.status-none {
   border: 1px solid #e0e0e0;
 }
+
 .room-card.status-green {
   border: 2px solid #2E9B4C;
 }
+
 .room-card.status-yellow {
   border: 2px solid #FFC107;
 }
+
 .room-card.status-red {
   border: 2px solid #D32F2F;
 }
+
 .room-card.status-green .room-icon {
   color: #2E9B4C;
 }
+
 .room-card.status-yellow .room-icon {
   color: #FFC107;
 }
+
 .room-card.status-red .room-icon {
   color: #D32F2F;
 }
+
 .room-card.status-yellow .warning-icon {
   color: #FFC107;
 }
+
 .room-card.status-red .warning-icon {
   color: #D32F2F;
 }
