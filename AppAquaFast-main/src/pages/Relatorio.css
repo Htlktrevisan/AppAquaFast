@@ -1,0 +1,249 @@
+.relatorio-container {
+  background-color: #ffffff;
+  min-height: 100vh;
+  padding: 0;
+  padding-bottom: 80px; /* Espaço para navbar inferior */
+}
+
+/* HEADER */
+.relatorio-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: #EFEBE2;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.relatorio-logo {
+  height: 40px;
+  cursor: pointer;
+}
+
+.relatorio-header-icons {
+  display: flex;
+  gap: 15px;
+  font-size: 27px;
+}
+
+.header-icon-link {
+  color: black;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.header-icon-link:hover {
+  color: #0F7CBF;
+  transform: scale(1.1);
+}
+
+/* CONTEÚDO */
+.relatorio-content {
+  padding: 20px 15px;
+}
+
+/* Título */
+.relatorio-title-bubble {
+  background-color: #0F7CBF;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 0 25px 25px 0;
+  margin: 0 0 25px -15px;
+  max-width: fit-content;
+  box-shadow: 0 4px 10px rgba(15, 124, 191, 0.3);
+}
+
+.relatorio-title-bubble h2 {
+  margin: 0 0 4px 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.relatorio-title-bubble p {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 300;
+  opacity: 0.95;
+}
+
+/* Cards de Resumo */
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.summary-card {
+  background: linear-gradient(135deg, #0F7CBF 0%, #0a5a8f 100%);
+  padding: 15px;
+  border-radius: 12px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(15, 124, 191, 0.2);
+}
+
+.summary-label {
+  font-size: 11px;
+  opacity: 0.9;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.summary-value {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.summary-subvalue {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+/* Navegação de Semanas */
+.week-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 12px;
+}
+
+.week-navigation h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.week-nav-button {
+  background-color: #0F7CBF;
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 16px;
+}
+
+.week-nav-button:hover:not(:disabled) {
+  background-color: #0a5a8f;
+  transform: scale(1.1);
+}
+
+.week-nav-button:disabled {
+  background-color: #d0d0d0;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Seções de Gráficos */
+.chart-section {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.chart-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 15px 0;
+  text-align: center;
+}
+
+/* Legenda Personalizada */
+.custom-legend {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #555;
+}
+
+.legend-color {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+/* Seção de Dicas */
+.tips-section {
+  background: linear-gradient(135deg, #FFD93D 0%, #FFA500 100%);
+  padding: 20px;
+  border-radius: 15px;
+  color: #333;
+  box-shadow: 0 4px 12px rgba(255, 217, 61, 0.3);
+}
+
+.tips-section h3 {
+  margin: 0 0 10px 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.tips-section p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .summary-cards {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .summary-card {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 12px 15px;
+  }
+
+  .summary-label {
+    font-size: 13px;
+    text-align: left;
+    margin-bottom: 0;
+  }
+
+  .summary-value {
+    font-size: 18px;
+  }
+
+  .custom-legend {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .week-navigation h3 {
+    font-size: 16px;
+  }
+
+  .week-nav-button {
+    width: 35px;
+    height: 35px;
+    font-size: 14px;
+  }
+}

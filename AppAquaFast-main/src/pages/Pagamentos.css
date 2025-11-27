@@ -1,0 +1,223 @@
+.payment-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #ffffff;
+  padding-bottom: 20px;
+}
+
+/* --- HEADER (Reutilizado de Home.css) --- */
+.home-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  padding: 15px;
+  background-color: #EFEBE2;
+}
+
+.home-logo-header {
+  height: 40px;
+}
+
+.home-header-icons {
+  font-size: 30px;
+  color: black; 
+  display: flex;
+  gap: 20px;
+}
+
+.header-icon-link {
+  color: black;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.header-icon-link:hover {
+  color: #0F7CBF;
+  transform: scale(1.1);
+}
+
+/* --- TÍTULO --- */
+.title-bar-blue {
+  margin-top: 30px;
+  margin-right: 100px;
+  background-color: #0F7CBF;
+  color: #ffffff;
+  padding: 15px;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  max-width: fit-content;
+}
+
+.title-bar-blue h1 {
+  margin: 0;
+  font-size: 1.4em;
+  font-weight: 500;
+}
+
+.subtitle-text {
+  padding: 10px 15px 20px 15px;
+  margin: 0;
+  font-size: 0.9em;
+  color: #666;
+}
+
+/* --- LISTA DE MÉTODOS DE PAGAMENTO --- */
+.payment-methods-section {
+  padding: 0 15px;
+  flex-grow: 1; 
+  margin-bottom: 20px;
+}
+
+.payment-item-link {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  margin-bottom: 10px;
+  background-color: #ffffff;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: #666;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  min-height: 50px;
+}
+
+.payment-item-link:hover {
+  background-color: #0F7CBF;
+  color: #ffffff;
+  border-color: #0F7CBF;
+  font-weight: 500;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.payment-item-link.selected {
+  background-color: #0F7CBF;
+  color: #ffffff;
+  border-color: #0F7CBF;
+  font-weight: 500;
+}
+
+.payment-item-link.selected .payment-icon-container svg,
+.payment-item-link:hover .payment-icon-container svg,
+.payment-item-link.selected .dropdown-arrow,
+.payment-item-link:hover .dropdown-arrow {
+  color: #ffffff;
+}
+
+.payment-icon-container {
+  margin-right: 15px;
+  color: #0F7CBF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.payment-text {
+  flex-grow: 1;
+  font-size: 16px;
+}
+
+.dropdown-arrow {
+  margin-left: auto;
+  color: #0F7CBF;
+  transition: transform 0.3s ease;
+}
+
+.dropdown-arrow.expanded {
+  transform: rotate(180deg);
+}
+
+/* --- OPÇÕES DE CARTÃO (EXPANSÍVEL) --- */
+.card-options-container {
+  display: flex;
+  flex-direction: column;
+  padding-left: 30px;
+  margin-bottom: 10px;
+  gap: 8px;
+}
+
+.card-choice-item {    
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  border-left: 3px solid transparent;
+  padding: 12px 15px;
+  background-color: #f8f9fa;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.card-choice-item:hover {
+  background-color: #e9ecef;
+  border-left-color: #0F7CBF;
+}
+
+.card-choice-item.selected {
+  color: #0F7CBF;
+  font-weight: bold;
+  border-left-color: #0F7CBF;
+  background-color: #e3f2fd;
+}
+
+/* --- BOTÃO CONFIRMAR --- */
+.confirm-button-wrapper {
+  padding: 0 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.confirm-button-blue {
+  width: 100%;
+  padding: 15px 0;
+  background-color: #0F7CBF;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(15, 124, 191, 0.3);
+}
+
+.confirm-button-blue:hover:not(:disabled) {
+  background-color: #0c6499;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(15, 124, 191, 0.4);
+}
+
+.confirm-button-blue:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.confirm-button-blue:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* --- RESPONSIVO --- */
+@media (max-width: 768px) {
+  .title-bar-blue {
+    margin-right: 50px;
+  }
+
+  .home-header-icons {
+    font-size: 26px;
+    gap: 15px;
+  }
+
+  .payment-text {
+    font-size: 14px;
+  }
+
+  .confirm-button-blue {
+    font-size: 1em;
+  }
+}

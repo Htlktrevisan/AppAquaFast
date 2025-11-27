@@ -11,6 +11,7 @@ body {
   background-color: #f0f2f5; 
 }
 
+
 /* 2. Define o "aparelho celular" (o #root) */
 #root {
   /* Define a largura máxima, como a de um celular */

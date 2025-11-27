@@ -1,6 +1,6 @@
 /* Container geral da Home */
 .home-container {
-  padding: 0 15px;
+padding: 0 15px;
   background-color: #ffffff;
   min-height: calc(100vh - 70px); 
 }
@@ -10,7 +10,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 -15px;
   padding: 15px 15px;
   background-color: #EFEBE2;
 }

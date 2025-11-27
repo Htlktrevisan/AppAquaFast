@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaUserCircle, FaShoppingCart, FaChevronDown } from 'react-icons/fa';
 
 import './Plans.css';
@@ -12,9 +12,25 @@ import planoPremiumLogo from '../assets/plano-premium-logo.png';
 
 export default function Plans() {
   const [open, setOpen] = useState(null);
+  const navigate = useNavigate();
 
   const toggle = (id) => {
     setOpen(open === id ? null : id);
+  };
+
+  // Função para comprar agora - vai direto para pagamentos
+  const handleBuyNow = (planTitle) => {
+    // Você pode salvar o plano selecionado no localStorage se quiser usar na página de pagamentos
+    localStorage.setItem('selectedPlan', planTitle);
+    navigate('/pagamentos');
+  };
+
+  // Função para adicionar ao carrinho
+  const handleAddToCart = (planTitle) => {
+    // Aqui você pode implementar a lógica do carrinho
+    alert(`${planTitle} adicionado ao carrinho!`);
+    // Ou navegar para o carrinho:
+    // navigate('/cart');
   };
 
   const plansData = [
@@ -47,7 +63,7 @@ export default function Plans() {
       {/* 1. Cabeçalho Específico desta Página (Bege) */}
       <header className="plans-specific-header">
         <div className="plans-header-content">
-            <Link to="/">
+            <Link to="/home">
                 <img src={logo} alt="AquaFast" className="plans-logo-img" />
             </Link>
             <div className="plans-header-icons">
@@ -113,8 +129,18 @@ export default function Plans() {
 
                 {/* Botões de Ação */}
                 <div className="plan-action-buttons">
-                    <button className="plan-btn-buy">Compra agora</button>
-                    <button className="plan-btn-cart">Adicionar ao carrinho</button>
+                    <button 
+                        className="plan-btn-buy"
+                        onClick={() => handleBuyNow(plan.title)}
+                    >
+                        Compra agora
+                    </button>
+                    <button 
+                        className="plan-btn-cart"
+                        onClick={() => handleAddToCart(plan.title)}
+                    >
+                        Adicionar ao carrinho
+                    </button>
                 </div>
 
               </div>

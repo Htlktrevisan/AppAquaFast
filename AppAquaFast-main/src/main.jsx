@@ -18,6 +18,9 @@ import Profile from './pages/Profile.jsx';
 import Map from './pages/Map.jsx';
 import Comments from './pages/Comments.jsx';
 import Energy from './pages/Energy.jsx';
+import Pagamentos from './pages/Pagamentos.jsx';
+import Chat from './pages/Chat.jsx';
+import Relatorio from './pages/Relatorio.jsx'; // ⭐ NOVO - Relatório de Energia
 
 // --- NOSSAS PÁGINAS DE CÔMODO ---
 import RoomEnergy from './pages/RoomEnergy.jsx';       // Página da Sala
@@ -91,6 +94,19 @@ const router = createBrowserRouter([
       {
         path: '/energia/banheiro',
         element: <BathroomEnergy />,
+      },
+      {
+        path: '/pagamentos',
+        element: <Pagamentos />,
+      },
+      {
+        path: '/chat',
+        element: <Chat />,
+      },
+      // ⭐ NOVA ROTA - Relatório
+      {
+        path: '/relatorio',
+        element: <Relatorio />,
       },
     ],
   },
